@@ -1438,13 +1438,13 @@ def start_app():
             pass
         return gr.update(visible=True)
     
-    start_button.click(
+start_button.click(
         fn=start_app,
         inputs=None,
         outputs=spending_section
     )
 
-    analyze_button.click(
+analyze_button.click(
         fn=identify_spending_profile,
 
         inputs=[
