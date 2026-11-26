@@ -1500,7 +1500,7 @@ create_button.click(
 
 
     # Open Group Analysis
-    group_analysis_button.click(
+group_analysis_button.click(
         fn=lambda: [
             gr.update(visible=False),
             gr.update(visible=True)
@@ -1516,7 +1516,7 @@ create_button.click(
 
 
     # Return to Budget
-    back_button.click(
+back_button.click(
         fn=lambda: [
             gr.update(visible=True),
             gr.update(visible=False)
