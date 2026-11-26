@@ -1463,7 +1463,7 @@ analyze_button.click(
     )
 
 
-    build_button.click(
+build_button.click(
         fn=show_budget_section,
 
         inputs=None,
