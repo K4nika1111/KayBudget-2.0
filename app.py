@@ -953,7 +953,7 @@ Your suggestions are based on your usual spending pattern.
 """
     try:
        base = "https://api." + "counterapi.dev"
-       requests.get(base + "/v2/kaybudget-created/up", timeout=2)
+       requests.get(base + "/v2/k4nika1111s-team-6359/kaybudget-created/up", timeout=2)
     except:
         pass
 
@@ -1433,7 +1433,7 @@ with gr.Blocks(
     def start_app():
             try:
                 base = "https://api." + "counterapi.dev"
-                requests.get(base + "/v2/kaybudget-started/up", timeout=2)
+                requests.get(base + "/v2/k4nika1111s-team-6359/kaybudget-started/up", timeout=2)
             except:
                 pass
             return gr.update(visible=True)
