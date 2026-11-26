@@ -16,14 +16,6 @@ df_raw = pd.read_csv("student budget - Form responses 1 (2).csv")
 df = df_raw.copy()
 df.head()
 
-student_budget = list(uploaded.keys())[0]
-
-df_raw = pd.read_csv(student_budget)
-
-df = df_raw.copy()
-
-df.head()
-
 print("Dataset Shape:")
 print(df.shape)
 
