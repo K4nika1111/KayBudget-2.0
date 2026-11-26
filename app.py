@@ -11,6 +11,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import re
+import requests
 
 df_raw = pd.read_csv("student budget - Form responses 1 (2).csv")
 df = df_raw.copy()
@@ -950,6 +951,11 @@ def create_final_budget(
 
 Your suggestions are based on your usual spending pattern.
 """
+    try:
+       base = "https://api." + "counterapi.dev"
+        requests.get(base + "/v1/kaybudget-v2-tracker/budget_created/up", timeout=2)
+    except:
+        pass
 
     return (
         result,
@@ -1424,12 +1430,19 @@ with gr.Blocks(
     # BUTTON CONNECTIONS
     # ==========================================
 
+def start_app():
+        try:
+            base = "https://api." + "counterapi.dev"
+            requests.get(base + "/v1/kaybudget-v2-tracker/started/up", timeout=2)
+        except:
+            pass
+        return gr.update(visible=True)
+    
     start_button.click(
-        fn=lambda: gr.update(visible=True),
+        fn=start_app,
         inputs=None,
         outputs=spending_section
     )
-
 
     analyze_button.click(
         fn=identify_spending_profile,
