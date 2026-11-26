@@ -1430,105 +1430,105 @@ with gr.Blocks(
     # BUTTON CONNECTIONS
     # ==========================================
 
-def start_app():
-        try:
-            base = "https://api." + "counterapi.dev"
-            requests.get(base + "/v2/kaybudget-started/up", timeout=2)
-        except:
-            pass
-        return gr.update(visible=True)
+    def start_app():
+            try:
+                base = "https://api." + "counterapi.dev"
+                requests.get(base + "/v2/kaybudget-started/up", timeout=2)
+            except:
+                pass
+            return gr.update(visible=True)
+        
+    start_button.click(
+            fn=start_app,
+            inputs=None,
+            outputs=spending_section
+        )
     
-start_button.click(
-        fn=start_app,
-        inputs=None,
-        outputs=spending_section
-    )
-
-analyze_button.click(
-        fn=identify_spending_profile,
-
-        inputs=[
-            food,
-            social,
-            shopping,
-            entertainment,
-            other
-        ],
-
-        outputs=[
-            profile_result,
-            cluster_state,
-            profile_section
-        ]
-    )
-
-
-build_button.click(
-        fn=show_budget_section,
-
-        inputs=None,
-
-        outputs=budget_section
-    )
-
-
-create_button.click(
-        fn=create_final_budget,
-
-        inputs=[
-            pocket_money,
-            work_income,
-            additional_income,
-
-            rent,
-            loan_emi_sip,
-            transport,
-            groceries,
-            education,
-            phone_internet,
-            other_necessary,
-
-            cluster_state
-        ],
-
-        outputs=[
-            final_result,
-            final_chart,
-            final_section
-        ]
-    )
-
-
-    # Open Group Analysis
-group_analysis_button.click(
-        fn=lambda: [
-            gr.update(visible=False),
-            gr.update(visible=True)
-        ],
-
-        inputs=None,
-
-        outputs=[
-            budget_page,
-            group_analysis_section
-        ]
-    )
-
-
-    # Return to Budget
-back_button.click(
-        fn=lambda: [
-            gr.update(visible=True),
-            gr.update(visible=False)
-        ],
-
-        inputs=None,
-
-        outputs=[
-            budget_page,
-            group_analysis_section
-        ]
-    )
+    analyze_button.click(
+            fn=identify_spending_profile,
+    
+            inputs=[
+                food,
+                social,
+                shopping,
+                entertainment,
+                other
+            ],
+    
+            outputs=[
+                profile_result,
+                cluster_state,
+                profile_section
+            ]
+        )
+    
+    
+    build_button.click(
+            fn=show_budget_section,
+    
+            inputs=None,
+    
+            outputs=budget_section
+        )
+    
+    
+    create_button.click(
+            fn=create_final_budget,
+    
+            inputs=[
+                pocket_money,
+                work_income,
+                additional_income,
+    
+                rent,
+                loan_emi_sip,
+                transport,
+                groceries,
+                education,
+                phone_internet,
+                other_necessary,
+    
+                cluster_state
+            ],
+    
+            outputs=[
+                final_result,
+                final_chart,
+                final_section
+            ]
+        )
+    
+    
+        # Open Group Analysis
+    group_analysis_button.click(
+            fn=lambda: [
+                gr.update(visible=False),
+                gr.update(visible=True)
+            ],
+    
+            inputs=None,
+    
+            outputs=[
+                budget_page,
+                group_analysis_section
+            ]
+        )
+    
+    
+        # Return to Budget
+    back_button.click(
+            fn=lambda: [
+                gr.update(visible=True),
+                gr.update(visible=False)
+            ],
+    
+            inputs=None,
+    
+            outputs=[
+                budget_page,
+                group_analysis_section
+            ]
+        )
 
 
 # ==========================================
